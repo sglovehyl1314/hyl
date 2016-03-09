@@ -50,7 +50,7 @@ public class ExcelUtil {
 		}
 	}
 
-	@SuppressWarnings( { "finally", "deprecation" })
+	@SuppressWarnings({ "finally", "deprecation" })
 	public static int transFile(String fName, Map<String, String> inputMap)
 			throws Exception {
 		int flag = 1;
@@ -63,8 +63,8 @@ public class ExcelUtil {
 				return 0;
 			}
 			File inFile = new File(fName);
-			List<Map<String, Object>> list = readExcel(inFile, Integer
-					.parseInt(array[0]), Integer.parseInt(array[1]));
+			List<Map<String, Object>> list = readExcel(inFile,
+					Integer.parseInt(array[0]), Integer.parseInt(array[1]));
 
 			// 2、创建Excel文件转换结果目录和以当前时间命名的xlsx文件
 			int cbfbm = 1;
@@ -237,8 +237,7 @@ public class ExcelUtil {
 					row = jtcydcHssfSheet.createRow(rowNum);
 					cell = row.createCell((short) 0);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFBM")
-							+ zm + zeroPadder(cbfbm + "", 4)));
+							.get("CBFBM") + zm + zeroPadder(cbfbm + "", 4)));
 					cell = row.createCell((short) 1);
 					cell.setCellValue(new HSSFRichTextString(cyxh + ""));
 					cell = row.createCell((short) 2);
@@ -530,8 +529,7 @@ public class ExcelUtil {
 					row = dkdcHssfSheet.createRow(dkRowNum);
 					cell = row.createCell((short) 0);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFBM")
-							+ zm + zeroPadder(cbfbm + "", 4)));
+							.get("CBFBM") + zm + zeroPadder(cbfbm + "", 4)));
 					cell = row.createCell((short) 1);
 					cell.setCellValue(new HSSFRichTextString(hz));
 					cell = row.createCell((short) 2);
@@ -614,16 +612,13 @@ public class ExcelUtil {
 						row = fbfdcHssfSheet.createRow(++fbfRowNum);
 						cell = row.createCell((short) 0);
 						cell.setCellValue(new HSSFRichTextString(inputMap
-								.get("CBFBM")
-								+ zm));
+								.get("CBFBM") + zm));
 						cell = row.createCell((short) 1);
 						cell.setCellValue(new HSSFRichTextString(inputMap
-								.get("CBFDZ")
-								+ "经济合作社（" + zm + "组）"));
+								.get("CBFDZ") + "经济合作社(" + zm + "组)"));
 						cell = row.createCell((short) 2);
 						cell.setCellValue(new HSSFRichTextString(inputMap
-								.get("CBFDZ")
-								+ "（" + zm + "组）"));
+								.get("CBFDZ") + "(" + zm + "组)"));
 						cell = row.createCell((short) 3);
 						cell.setCellValue(new HSSFRichTextString(""));
 						cell = row.createCell((short) 4);
@@ -649,14 +644,26 @@ public class ExcelUtil {
 						cell = row.createCell((short) 12);
 						cell.setCellValue(new HSSFRichTextString(""));
 
+						fbfRowNum += 2;
+
+						row = fbfdcHssfSheet.createRow(++fbfRowNum);
+						cell = row.createCell((short) 0);
+						cell.setCellValue(new HSSFRichTextString("<END_DATA>"));
+						cell.setCellStyle(cellStyle);
+						
+						row = fbfdcHssfSheet.createRow(++fbfRowNum);
+						cell = row.createCell((short) 0);
+						cell.setCellValue(new HSSFRichTextString(
+								"在首列用上行标识作结束标记"));
+						cell.setCellStyle(cellStyle);
+
 						// 创建承包方记录
 						row = cbfdcHssfSheet.createRow(++cbfRowNum);
 						cell = row.createCell((short) 0);
 						cell.setCellValue(new HSSFRichTextString("否"));
 						cell = row.createCell((short) 1);
 						cell.setCellValue(new HSSFRichTextString(inputMap
-								.get("CBFBM")
-								+ zm + zeroPadder(cbfbm + "", 4)));
+								.get("CBFBM") + zm + zeroPadder(cbfbm + "", 4)));
 						cell = row.createCell((short) 2);
 						cell.setCellValue(new HSSFRichTextString(hz));
 						cell = row.createCell((short) 3);
@@ -669,8 +676,7 @@ public class ExcelUtil {
 						cell.setCellValue(new HSSFRichTextString(""));
 						cell = row.createCell((short) 7);
 						cell.setCellValue(new HSSFRichTextString(inputMap
-								.get("CBFDZ")
-								+ zm + "组"));
+								.get("CBFDZ") + zm + "组"));
 						cell = row.createCell((short) 8);
 						cell.setCellValue(new HSSFRichTextString(inputMap
 								.get("YZBM")));
@@ -713,16 +719,13 @@ public class ExcelUtil {
 					row = fbfdcHssfSheet.createRow(++fbfRowNum);
 					cell = row.createCell((short) 0);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFBM")
-							+ zm));
+							.get("CBFBM") + zm));
 					cell = row.createCell((short) 1);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFDZ")
-							+ "经济合作社（" + zm + "组）"));
+							.get("CBFDZ") + "经济合作社(" + zm + "组)"));
 					cell = row.createCell((short) 2);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFDZ")
-							+ "（" + zm + "组）"));
+							.get("CBFDZ") + "(" + zm + "组)"));
 					cell = row.createCell((short) 3);
 					cell.setCellValue(new HSSFRichTextString(""));
 					cell = row.createCell((short) 4);
@@ -748,14 +751,25 @@ public class ExcelUtil {
 					cell = row.createCell((short) 12);
 					cell.setCellValue(new HSSFRichTextString(""));
 
+					fbfRowNum += 2;
+
+					row = fbfdcHssfSheet.createRow(++fbfRowNum);
+					cell = row.createCell((short) 0);
+					cell.setCellValue(new HSSFRichTextString("<END_DATA>"));
+					cell.setCellStyle(cellStyle);
+					
+					row = fbfdcHssfSheet.createRow(++fbfRowNum);
+					cell = row.createCell((short) 0);
+					cell.setCellValue(new HSSFRichTextString("在首列用上行标识作结束标记"));
+					cell.setCellStyle(cellStyle);
+
 					// 创建承包方记录
 					row = cbfdcHssfSheet.createRow(++cbfRowNum);
 					cell = row.createCell((short) 0);
 					cell.setCellValue(new HSSFRichTextString("否"));
 					cell = row.createCell((short) 1);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFBM")
-							+ zm + zeroPadder(cbfbm + "", 4)));
+							.get("CBFBM") + zm + zeroPadder(cbfbm + "", 4)));
 					cell = row.createCell((short) 2);
 					cell.setCellValue(new HSSFRichTextString(hz));
 					cell = row.createCell((short) 3);
@@ -768,8 +782,7 @@ public class ExcelUtil {
 					cell.setCellValue(new HSSFRichTextString(""));
 					cell = row.createCell((short) 7);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFDZ")
-							+ zm + "组"));
+							.get("CBFDZ") + zm + "组"));
 					cell = row.createCell((short) 8);
 					cell.setCellValue(new HSSFRichTextString(inputMap
 							.get("YZBM")));
@@ -939,8 +952,7 @@ public class ExcelUtil {
 					row = jtcydcHssfSheet.createRow(rowNum);
 					cell = row.createCell((short) 0);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFBM")
-							+ zm + zeroPadder(cbfbm + "", 4)));
+							.get("CBFBM") + zm + zeroPadder(cbfbm + "", 4)));
 					cell = row.createCell((short) 1);
 					cell.setCellValue(new HSSFRichTextString(cyxh + ""));
 					cell = row.createCell((short) 2);
@@ -1230,8 +1242,7 @@ public class ExcelUtil {
 					row = dkdcHssfSheet.createRow(dkRowNum);
 					cell = row.createCell((short) 0);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFBM")
-							+ zm + zeroPadder(cbfbm + "", 4)));
+							.get("CBFBM") + zm + zeroPadder(cbfbm + "", 4)));
 					cell = row.createCell((short) 1);
 					cell.setCellValue(new HSSFRichTextString(hz));
 					cell = row.createCell((short) 2);
@@ -1320,8 +1331,7 @@ public class ExcelUtil {
 						cell.setCellValue(new HSSFRichTextString("否"));
 						cell = row.createCell((short) 1);
 						cell.setCellValue(new HSSFRichTextString(inputMap
-								.get("CBFBM")
-								+ zm + zeroPadder(cbfbm + "", 4)));
+								.get("CBFBM") + zm + zeroPadder(cbfbm + "", 4)));
 						cell = row.createCell((short) 2);
 						cell.setCellValue(new HSSFRichTextString(hz));
 						cell = row.createCell((short) 3);
@@ -1334,8 +1344,7 @@ public class ExcelUtil {
 						cell.setCellValue(new HSSFRichTextString(""));
 						cell = row.createCell((short) 7);
 						cell.setCellValue(new HSSFRichTextString(inputMap
-								.get("CBFDZ")
-								+ zm + "组"));
+								.get("CBFDZ") + zm + "组"));
 						cell = row.createCell((short) 8);
 						cell.setCellValue(new HSSFRichTextString(inputMap
 								.get("YZBM")));
@@ -1379,8 +1388,7 @@ public class ExcelUtil {
 					row = jtcydcHssfSheet.createRow(++rowNum);
 					cell = row.createCell((short) 0);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFBM")
-							+ zm + zeroPadder(cbfbm + "", 4)));
+							.get("CBFBM") + zm + zeroPadder(cbfbm + "", 4)));
 					cell = row.createCell((short) 1);
 					cell.setCellValue(new HSSFRichTextString(cyxh + ""));
 					cell = row.createCell((short) 2);
@@ -1398,9 +1406,8 @@ public class ExcelUtil {
 
 						if (cyxh == 1
 								&& !StringUtil.removeNull(map.get("HZ"))
-										.equals(
-												StringUtil.removeNull(map
-														.get("XM")))) {
+										.equals(StringUtil.removeNull(map
+												.get("XM")))) {
 							row.getCell(2).setCellStyle(cellStyle);
 						}
 
@@ -1483,8 +1490,7 @@ public class ExcelUtil {
 					row = dkdcHssfSheet.createRow(++dkRowNum);
 					cell = row.createCell((short) 0);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFBM")
-							+ zm + zeroPadder(cbfbm + "", 4)));
+							.get("CBFBM") + zm + zeroPadder(cbfbm + "", 4)));
 					cell = row.createCell((short) 1);
 					cell.setCellValue(new HSSFRichTextString(hz));
 					cell = row.createCell((short) 2);
@@ -1568,16 +1574,13 @@ public class ExcelUtil {
 					row = fbfdcHssfSheet.createRow(++fbfRowNum);
 					cell = row.createCell((short) 0);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFBM")
-							+ zm));
+							.get("CBFBM") + zm));
 					cell = row.createCell((short) 1);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFDZ")
-							+ "经济合作社（" + zm + "组）"));
+							.get("CBFDZ") + "经济合作社(" + zm + "组)"));
 					cell = row.createCell((short) 2);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFDZ")
-							+ "（" + zm + "组）"));
+							.get("CBFDZ") + "(" + zm + "组)"));
 					cell = row.createCell((short) 3);
 					cell.setCellValue(new HSSFRichTextString(""));
 					cell = row.createCell((short) 4);
@@ -1603,14 +1606,25 @@ public class ExcelUtil {
 					cell = row.createCell((short) 12);
 					cell.setCellValue(new HSSFRichTextString(""));
 
+					fbfRowNum += 2;
+
+					row = fbfdcHssfSheet.createRow(++fbfRowNum);
+					cell = row.createCell((short) 0);
+					cell.setCellValue(new HSSFRichTextString("<END_DATA>"));
+					cell.setCellStyle(cellStyle);
+					
+					row = fbfdcHssfSheet.createRow(++fbfRowNum);
+					cell = row.createCell((short) 0);
+					cell.setCellValue(new HSSFRichTextString("在首列用上行标识作结束标记"));
+					cell.setCellStyle(cellStyle);
+
 					// 创建承包方记录
 					row = cbfdcHssfSheet.createRow(++cbfRowNum);
 					cell = row.createCell((short) 0);
 					cell.setCellValue(new HSSFRichTextString("否"));
 					cell = row.createCell((short) 1);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFBM")
-							+ zm + zeroPadder(cbfbm + "", 4)));
+							.get("CBFBM") + zm + zeroPadder(cbfbm + "", 4)));
 					cell = row.createCell((short) 2);
 					cell.setCellValue(new HSSFRichTextString(hz));
 					cell = row.createCell((short) 3);
@@ -1623,8 +1637,7 @@ public class ExcelUtil {
 					cell.setCellValue(new HSSFRichTextString(""));
 					cell = row.createCell((short) 7);
 					cell.setCellValue(new HSSFRichTextString(inputMap
-							.get("CBFDZ")
-							+ zm + "组"));
+							.get("CBFDZ") + zm + "组"));
 					cell = row.createCell((short) 8);
 					cell.setCellValue(new HSSFRichTextString(inputMap
 							.get("YZBM")));
